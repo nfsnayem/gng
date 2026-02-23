@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>NickFinder – Fancy Text Symbols & Stylish Nickname Generator</title>
+<meta name="description" content="Copy 10,000+ fancy symbols, fonts, and emojis organized by category. Click any symbol to instantly copy it."/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/ads.css">
+</head> 
+<body>
+
+<header class="hdr">
+  <div class="hdr-inner">
+    <a class="hdr-logo" href="#">
+      <div class="hdr-logo-mark">🎮</div>
+      <div class="hdr-logo-text">
+        <div class="hdr-logo-name"><em>GAM</em>ING</div>
+        <div class="hdr-logo-sub">Name Generator</div>
+      </div>
+    </a>
+
+    <div class="copy-box-wrap">
+      <input type="text" id="copyBox" placeholder="Click to build name..." spellcheck="false"/>
+      <button class="cb-btn cb-clear" onclick="clearBoxText()">Clear</button>
+      <button class="cb-btn cb-copy" onclick="copyBoxText()">Copy</button>
+    </div>
+
+    <div class="hdr-auth">
+      <a href="#" class="hdr-donate">Donate</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <aside class="sb sb-l">
+    <div class="sb-lbl">Advertisement</div>
+    <div id="left-ad-1"></div> 
+    <div id="left-aff-1"></div>
+    <div id="left-ad-2"></div>
+    <div id="left-aff-2"></div>
+    <div id="left-ad-3"></div>
+    <div id="left-aff-3"></div>
+  </aside>
+
+  <div class="spacer spacer-l">&#3164;</div>
+
+  <main class="main">
+    <div class="intro">
+      <h1>✦ Fancy Text Symbols — Click Any Symbol to Copy</h1>
+      <p>Over 10,000+ extracted symbols, letters, emojis, and kaomoji faces organized by category. Click any text to add it to your copy box above. Use them in Free Fire, PUBG, Valorant, Instagram, WhatsApp, and more.</p>
+    </div>
+
+    <div id="main-ad-top"></div>
+    
+    <div class="sym-search">
+      <span class="s-ico">🔍</span>
+      <input id="symQ" placeholder="Search for specific symbols — try: heart, face, star, arrow…"
+             autocomplete="off" spellcheck="false" oninput="onSymSearch()"/>
+      <span class="s-count" id="sCount"></span>
+    </div>
+    
+    <div id="symPart1"></div>
+    <div id="main-ad-mid-1"></div>
+    
+    <div id="symPart2"></div>
+    <div id="main-ad-mid-2"></div>
+    
+    <div id="symPart3"></div>
+    <div id="main-ad-mid-3"></div>
+    
+    <div id="symPart4"></div>
+    
+    <div id="main-ad-bot"></div>
+  </main>
+
+  <div class="spacer spacer-r">&#3164;</div>
+
+  <aside class="sb sb-r">
+    <div class="sb-lbl">Advertisement</div>
+    <div id="right-ad-1"></div>
+    <div id="right-aff-1"></div>
+    <div id="right-ad-2"></div>
+    <div id="right-aff-2"></div>
+    <div id="right-ad-3"></div>
+    <div id="right-aff-3"></div>
+  </aside>
+
+</div>
+
+<footer>
+  <div class="ft-grid">
+    <div class="ft-brand">
+      <div class="ft-logo-name"><em>GAM</em>ING</div>
+      <p>Your #1 source for fancy symbols, text decorations, and stylish gaming nicknames.</p>
+    </div>
+    <div class="ft-col">
+      <h4>Tools</h4>
+      <a href="#">Fancy Text Generator</a>
+      <a href="#">Nick Generator</a>
+      <a href="#">Symbol Picker</a>
+    </div>
+    <div class="ft-col">
+      <h4>Games</h4>
+      <a href="#">Free Fire Names</a>
+      <a href="#">PUBG Nicknames</a>
+      <a href="#">Valorant Names</a>
+    </div>
+    <div class="ft-col">
+      <h4>Company</h4>
+      <a href="#">About Us</a>
+      <a href="#">Contact</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <div class="ft-bottom-logo"><em>GAM</em>ING</div>
+    <div class="ft-bottom-copy">© 2026 Gaming Name Generator · All rights reserved</div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="/assets/js/ads.js"></script>
+<script src="/assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,346 @@
+/* ─── RESET ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --hdr: 74px;
+  --bg: #f1f3f6;
+  --white: #ffffff;
+  --bdr: #dce0e8;
+  --bdr2: #ebeef3;
+  --text: #1c1e21;
+  --dim: #606770;
+  --muted: #90949c;
+  --accent: #FF3366; 
+  --accent-h: #e62050;
+  --blue: #1877f2;
+  --green: #42b72a;
+  --hbg: #1c1e21;
+  --hbdr: #3a3b3c;
+  --s-head: #f5f6f8;
+  /* Ad variables kept here so both stylesheets can use them */
+  --ad-bg: #f8f9fb;
+  --ad-bdr: #d8dbe3;
+  --sym-h: #fff5f7;
+  --sym-bdr-h: #FF3366;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ════════════════════════════════════════
+   HEADER  — Full Bleed Background, 1200px Content
+════════════════════════════════════════ */
+.hdr {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: var(--hdr);
+  background: var(--hbg);
+  border-bottom: 1px solid var(--hbdr);
+  z-index: 300;
+}
+.hdr-inner {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* ── MODERN LOGO ── */
+.hdr-logo {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none; flex-shrink: 0;
+  transition: opacity .2s ease;
+}
+.hdr-logo:hover { opacity: 0.9; }
+.hdr-logo-mark {
+  width: 42px; height: 42px;
+  background: linear-gradient(135deg, #FF3366, #FF9933);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; color: #fff;
+  box-shadow: 0 4px 15px rgba(255, 51, 102, 0.35);
+  flex-shrink: 0;
+}
+.hdr-logo-text { line-height: 1.1; }
+.hdr-logo-name {
+  font-size: 1.35rem; font-weight: 900; color: #fff; letter-spacing: 3.5px;
+}
+.hdr-logo-name em { color: #FF9933; font-style: normal; }
+.hdr-logo-sub {
+  font-size: .65rem; color: rgba(255,255,255,.5);
+  text-transform: uppercase; letter-spacing: 1px; font-weight: 700;
+  margin-top: 1px;
+}
+
+/* ── HEADER COPY BOX BUILDER ── */
+.copy-box-wrap {
+  flex: 1; 
+  max-width: 600px; 
+  margin: 0 auto;
+  background: var(--white);
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  padding: 4px 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 0 15px rgba(255, 51, 102, 0.2);
+}
+.copy-box-wrap input {
+  flex: 1;
+  min-width: 0; 
+  border: none;
+  outline: none;
+  font-size: 1.15rem;
+  color: var(--text);
+  background: transparent;
+  padding: 0 8px;
+  font-family: inherit;
+  font-weight: 600;
+}
+.copy-box-wrap input::placeholder {
+  color: #aeb4be;
+  font-size: .95rem;
+  font-weight: 500;
+}
+.cb-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: .8rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+  white-space: nowrap;
+}
+.cb-copy {
+  background: var(--accent);
+  color: #fff;
+}
+.cb-copy:hover {
+  background: var(--accent-h);
+}
+.cb-clear {
+  background: #f1f3f6;
+  color: var(--dim);
+}
+.cb-clear:hover {
+  background: #e2e5e9;
+  color: var(--text);
+}
+
+/* header auth buttons */
+.hdr-auth { display: flex; align-items: center; gap: 14px; margin-left: auto; flex-shrink: 0; }
+.hdr-donate {
+  background: linear-gradient(135deg, #FF3366, #FF9933); color: #fff; text-decoration: none;
+  padding: 8px 18px; border-radius: 6px; font-size: .85rem; font-weight: 700;
+  transition: background .15s; border: 1px solid rgba(255,255,255,.2);
+}
+.hdr-donate:hover { background: linear-gradient(135deg, #FF3366, #FF9933); }
+
+/* ════════════════════════════════════════
+   1200PX CUSTOM PERCENTAGE LAYOUT
+════════════════════════════════════════ */
+.wrap {
+  margin: calc(var(--hdr) + 50px) auto 50px auto;
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 20% 2% 56% 2% 20%;
+  align-items: start; 
+  flex: 1;
+}
+
+/* Invisible space columns */
+.spacer {
+  height: 100%;
+  color: transparent;
+  user-select: none;
+  pointer-events: none;
+  font-size: 1px;
+}
+
+/* ════════════════════════════════════════
+   SCROLL-TO-END STICKY SIDEBARS
+════════════════════════════════════════ */
+.sb {
+  position: sticky;
+  
+  /* 1. This is the key: It only sticks once the user sees the END of the sidebar */
+  bottom: 20px; 
+  
+  /* 2. Remove any top value so it doesn't stick too early */
+  top: auto; 
+
+  height: max-content;
+  background: var(--white);
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 10;
+  border-radius: 8px;
+  border: 1px solid var(--bdr);
+  
+  /* Prevent sidebars from being hidden on scroll */
+  align-self: start; 
+}
+
+/* ════════════════════════════════════════
+   MAIN CONTENT
+════════════════════════════════════════ */
+.main {
+  padding: 0;
+  min-width: 0;
+}
+
+/* ── page intro strip ── */
+.intro {
+  background: var(--white);
+  border: 1px solid var(--bdr);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+}
+.intro h1 { font-size: 1rem; font-weight: 800; color: var(--text); margin-bottom: 3px; }
+.intro p { font-size: .78rem; color: var(--dim); }
+
+/* ── search row (main body only) ── */
+.sym-search { background: var(--white); border: 1px solid var(--bdr); border-radius: 8px; display: flex; align-items: center; gap: 10px; padding: 9px 14px; margin-bottom: 14px; }
+.sym-search input { flex: 1; border: none; outline: none; font-family: inherit; font-size: .88rem; color: var(--text); background: transparent; }
+.sym-search input::placeholder { color: #bbb; }
+.sym-search .s-ico { color: #ccc; font-size: 1rem; flex-shrink: 0; }
+.sym-search .s-count { font-size: .72rem; color: var(--muted); white-space: nowrap; }
+
+/* ── symbol section block ── */
+.sym-block { background: var(--white); border: 1px solid var(--bdr); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+.sym-block-hd { background: var(--s-head); border-bottom: 1px solid var(--bdr2); padding: 8px 14px; display: flex; align-items: center; justify-content: space-between; }
+.sym-block-hd h2 { font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--dim); }
+.sym-block-hd .cnt { font-size: .66rem; color: var(--muted); font-weight: 600; }
+
+.sym-grid { display: flex; flex-wrap: wrap; justify-content: space-between; padding: 8px; gap: 4px; }
+
+/* ── symbol items ── */
+.sym {
+  height: 34px;
+  min-width: 34px;
+  width: auto;
+  padding: 0 8px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 5px;
+  border: 1px solid #e8eaed;
+  background: #fff;
+  font-size: 1.05rem;
+  cursor: pointer; user-select: none;
+  transition: background .1s, border-color .1s, transform .1s, box-shadow .1s;
+  position: relative;
+  white-space: nowrap;
+}
+.sym:hover { background: var(--sym-h); border-color: var(--sym-bdr-h); transform: scale(1.15); z-index: 5; box-shadow: 0 3px 10px rgba(255, 51, 102, 0.15); }
+.sym.copied { background: #eafaf0; border-color: #2ecc71; transform: scale(1.05); }
+
+.main-end { height: 24px; }
+
+/* ════════════════════════════════════════
+   FULL BLEED FOOTER, 1200PX CONTENT
+════════════════════════════════════════ */
+footer {
+  width: 100%;
+  background: var(--hbg);
+  border-top: 1px solid var(--hbdr);
+  padding: 40px 0 24px 0;
+  margin-top: auto;
+}
+.ft-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 280px repeat(3, 1fr);
+  gap: 32px;
+}
+.ft-brand .ft-logo-name { font-size: 1.35rem; font-weight: 900; color: #fff; letter-spacing: -0.5px; }
+.ft-brand .ft-logo-name em { color: #FF9933; font-style: normal; }
+.ft-brand p { font-size: .78rem; color: rgba(255,255,255,.4); margin-top: 8px; line-height: 1.6; max-width: 220px; }
+.ft-col h4 { font-size: .68rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 12px; }
+.ft-col a { display: block; color: rgba(255,255,255,.55); text-decoration: none; font-size: .8rem; padding: 3px 0; transition: color .14s; }
+.ft-col a:hover { color: #fff; }
+.ft-bottom { max-width: 1200px; margin: 28px auto 0; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.08); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+.ft-bottom-logo { font-size: .9rem; font-weight: 800; color: rgba(255,255,255,.5); }
+.ft-bottom-logo em { color: #FF9933; font-style: normal; }
+.ft-bottom-copy { font-size: .72rem; color: rgba(255,255,255,.28); }
+
+/* ════════════════════════════════════════
+   TOAST
+════════════════════════════════════════ */
+.toast {
+  position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%) translateY(12px); background: #1c1e21; color: #fff; font-size: .78rem; font-weight: 700; padding: 9px 22px; border-radius: 30px; opacity: 0; pointer-events: none; transition: all .22s; z-index: 1000; white-space: nowrap; box-shadow: 0 4px 18px rgba(0,0,0,.35);
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+════════════════════════════════════════ */
+
+/* Add padding to the edges right before it hits the 1200px max-width */
+@media (max-width: 1240px) {
+  .hdr-inner, .wrap, .ft-grid, .ft-bottom { padding-left: 20px; padding-right: 20px; }
+}
+
+/* 1. WIDE BREAKPOINT (900px) */
+@media (max-width: 900px) {
+  /* Hide the right sidebar and change grid to 2 columns (Left Sidebar + Content) */
+  .wrap { grid-template-columns: 28% 2% 70%; }
+  .sb-r, .spacer-r { display: none; }
+  
+  /* Hide logo text in header to ensure search box still has room */
+  .hdr-logo-text { display: none; }
+}
+
+/* 2. MEDIUM BREAKPOINT (650px) */
+@media (max-width: 650px) {
+  /* Stack the Header vertically */
+  .hdr { height: auto; padding: 16px 0; }
+  .hdr-inner { flex-direction: column; gap: 14px; }
+  
+  /* Center the Logo */
+  .hdr-logo { margin: 0 auto; justify-content: center; }
+  .hdr-logo-text { display: block; } 
+  
+  /* Full-width Search Box */
+  .copy-box-wrap { width: 100%; max-width: 100%; margin: 0; gap: 4px; padding: 6px; }
+  .copy-box-wrap input { font-size: 1rem; }
+  .cb-btn { padding: 8px 12px; font-size: 0.75rem; }
+  
+  /* Center the Auth/Donate button */
+  .hdr-auth { display: flex; margin: 0 auto; width: 100%; justify-content: center; }
+  
+  /* Hide the Left Sidebar and make Main Content 100% width */
+  .sb-l, .spacer-l { display: none; }
+  .wrap { 
+    display: block; 
+    margin-top: 230px; /* Safe distance for the new stacked header height */
+  }
+  
+  /* Change Footer to 2 Columns */
+  .ft-grid { grid-template-columns: 1fr 1fr; }
+  .ft-brand { grid-column: 1 / -1; } /* Make the brand description span full width */
+}
+
+/* 3. NARROW BREAKPOINT (480px) */
+@media (max-width: 480px) {
+  /* Change Footer to 1 Single Column */
+  .ft-grid { grid-template-columns: 1fr; }
+  
+  /* Push main content slightly further down for very small phone headers */
+  .wrap { margin-top: 245px; }
+}

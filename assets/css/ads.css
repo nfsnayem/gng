@@ -1,0 +1,94 @@
+/* ════════════════════════════════════════
+   ADVERTISEMENTS & AFFILIATE STYLES
+════════════════════════════════════════ */
+
+/* ── SIDEBAR AD LABELS ── */
+.sb-lbl { 
+  font-size: .6rem; 
+  font-weight: 700; 
+  letter-spacing: 1px; 
+  text-transform: uppercase; 
+  color: #bbb; 
+  text-align: center; 
+  margin-bottom: -8px; 
+}
+
+/* ── SIDEBAR AD SLOTS ── */
+.ad {
+  border: 1.5px dashed var(--ad-bdr);
+  background: var(--ad-bg);
+  border-radius: 8px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; gap: 4px;
+  padding: 12px 8px;
+  position: relative; overflow: hidden;
+  cursor: default;
+}
+.ad::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    45deg, transparent, transparent 5px,
+    rgba(0,0,0,.018) 5px, rgba(0,0,0,.018) 10px
+  );
+}
+.ad-tag { font-size: .6rem; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); position: relative; z-index: 1; }
+.ad-dim { font-size: .62rem; color: #bbb; position: relative; z-index: 1; }
+.ad-ico { font-size: 1.5rem; position: relative; z-index: 1; margin-bottom: 2px; }
+
+/* ── SIDEBAR AFFILIATE CARDS ── */
+.aff {
+  background: var(--white);
+  border: 1px solid var(--bdr);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.aff-head {
+  height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .82rem; font-weight: 800; color: #fff; letter-spacing: -.2px;
+}
+.aff-body { padding: 9px 10px 10px; }
+.aff-badge { font-size: .58rem; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.aff-desc { font-size: .7rem; color: var(--dim); line-height: 1.45; margin-bottom: 8px; }
+.aff-btn { display: block; text-align: center; text-decoration: none; padding: 7px 10px; border-radius: 6px; font-size: .72rem; font-weight: 800; color: #fff; transition: opacity .15s; }
+.aff-btn:hover { opacity: .88; }
+
+/* ── MAIN CONTENT LEADERBOARD ADS ── */
+.ldr-ad {
+  background: var(--ad-bg); 
+  border: 1.5px dashed var(--ad-bdr); 
+  border-radius: 8px;
+  height: 88px; 
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted); 
+  font-size: .68rem; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; 
+  margin-bottom: 14px; 
+  position: relative; overflow: hidden;
+}
+.ldr-ad::after { 
+  content: ''; position: absolute; inset: 0; 
+  background: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(0,0,0,.014) 5px, rgba(0,0,0,.014) 10px); 
+}
+.ldr-ad span { position: relative; z-index: 1; }
+
+/* ── MID-CONTENT COMPACT ADS ── */
+.mid-ad { 
+  background: var(--ad-bg); 
+  border: 1.5px dashed var(--ad-bdr); 
+  border-radius: 8px; 
+  height: 90px; 
+  display: flex; align-items: center; justify-content: center; 
+  color: var(--muted); 
+  font-size: .68rem; font-weight: 700; letter-spacing: 1px; 
+  text-transform: uppercase; 
+  margin-bottom: 10px; 
+  position: relative; overflow: hidden; 
+}
+.mid-ad::after { 
+  content: ''; position: absolute; inset: 0; 
+  background: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(0,0,0,.012) 5px, rgba(0,0,0,.012) 10px); 
+}
+.mid-ad span { position: relative; z-index: 1; }
